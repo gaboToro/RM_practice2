@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Styles for Forms (Register and Login) */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Includes padding in the width calculation */
+}
+
+button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+p a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* Styles for the Rick and Morty page */
+.search-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 70%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    box-sizing: border-box;
+}
+
+#searchButton {
+    padding: 10px 15px;
+    width: auto;
+    border-radius: 0 4px 4px 0;
+}
+
+.grid-container {
+    display: grid;
+    /* Display 3 columns on large screens */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
+}
+
+.character-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex; /* To align image and text */
+    align-items: center;
+}
+
+.character-card img {
+    width: 120px; /* Image size */
+    height: 120px;
+    object-fit: cover;
+}
+
+.character-card .info {
+    padding: 15px;
+}
+
+.character-card h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #2c3e50;
+}
+
+.character-card p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.header {
+    /* Use flexbox to position the title and logout button horizontally */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logout-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto; /* Override default button width */
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Adjust search input for full width, since the search button is gone */
+#searchInput {
+    padding: 10px;
+    width: 100%; /* Changed from 70% */
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Changed from 4px 0 0 4px */
+    box-sizing: border-box;
+}
+
+.search-container {
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
