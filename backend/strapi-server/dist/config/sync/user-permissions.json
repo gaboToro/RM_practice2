@@ -1,0 +1,20 @@
+{
+  "roles": {
+    "public": {
+      "permissions": {
+        "users-permissions": {
+          "controllers": {
+            "auth": {
+              "local": "enabled",
+              "register": "enabled"
+            },
+            "user": {
+              "find": "enabled",
+              "findOne": "enabled"
+            }
+          }
+        }
+      }
+    }
+  }
+}
