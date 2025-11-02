@@ -1,0 +1,50 @@
+services:
+  # 1. PostgreSQL Database Service
+  postgres_db:
+    image: postgres:14-alpine
+    container_name: postgres-db-RM
+    environment:
+      # These credentials are used by Strapi locally
+      POSTGRES_USER: strapi_user
+      POSTGRES_PASSWORD: strapi_password
+      POSTGRES_DB: strapi_db
+    # Uncomment volumes for persistence on local machine:
+    #volumes:
+     # - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" # Optional: Map port for external access
+
+  # 2. Strapi Backend Service
+  backend:
+    build: 
+      context: ./backend/strapi-server # Path to the Dockerfile
+    container_name: strapi-backend
+    ports:
+      - "1337:1337"
+    environment:
+      # LOCAL variables pointing to the postgres_db service name
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres_db
+      DATABASE_PORT: 5432
+      DATABASE_NAME: strapi_db
+      DATABASE_USERNAME: strapi_user
+      DATABASE_PASSWORD: strapi_password
+      NODE_ENV: development # Use development mode locally for easy changes
+      # NOTE: For local testing, you might need to set your APP_KEYS/JWT_SECRET
+      # APP_KEYS: ...
+      # JWT_SECRET: ...
+    depends_on:
+      - postgres_db # Wait for DB to start
+
+  # 3. Frontend Service (Vanilla JS + Nginx)
+  frontend:
+    build: 
+      context: ./frontend # Path to the Dockerfile
+    container_name: vanilla-frontend
+    ports:
+      - "80:80" # Maps localhost:80 to the container's port 80
+    depends_on:
+      - backend # Wait for Backend to start (optional but helpful)
+
+# volumes:
+#   postgres_data: # Volume definition for persistence
