@@ -5,7 +5,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     const password = document.getElementById('password').value;
 
     // **IMPORTANT:** Replace 'YOUR_STRAPI_URL' with your deployed backend URL (from Render)
-    const apiUrl = `${STRAPI_URL}/api/auth/local`;
+    const apiUrl = 'https://strapi-backend-api-o2mz.onrender.com/api/auth/local';
 
     try {
         const response = await fetch(apiUrl, {
